@@ -6,8 +6,6 @@ int main()
     Span ff(n);
     try
     {
-
-        
         int i = 0;
         while(i < n)
         {
@@ -23,7 +21,6 @@ int main()
     {
         std::cout << "Error: " << e.what() << std::endl;
     }
-    
 }
 
 
