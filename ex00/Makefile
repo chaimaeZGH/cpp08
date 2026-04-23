@@ -6,7 +6,6 @@ NAME =  Easy_find
 OBJS = $(SRCS:.cpp=.o)
 HEADER = easyfind.hpp
 
-
 all: $(NAME)	
 
 $(NAME): $(OBJS)

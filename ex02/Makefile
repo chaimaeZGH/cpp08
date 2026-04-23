@@ -6,7 +6,6 @@ NAME =  MutantStack
 OBJS = $(SRCS:.cpp=.o)
 HEADER = MutantStack.hpp
 
-
 all: $(NAME)	
 
 $(NAME): $(OBJS)

@@ -6,7 +6,6 @@ NAME = Span
 OBJS = $(SRCS:.cpp=.o)
 HEADER = Span.hpp
 
-
 all: $(NAME)	
 
 $(NAME): $(OBJS)

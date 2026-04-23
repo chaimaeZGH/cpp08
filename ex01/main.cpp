@@ -15,15 +15,12 @@ int main()
 
         std::cout<<ff.longestSpan()<<std::endl;
         std::cout<<ff.shortestSpan()<<std::endl;;
-        
     }
     catch (const std::out_of_range& e)
     {
         std::cout << "Error: " << e.what() << std::endl;
     }
 }
-
-
 
 // int main()
 // {

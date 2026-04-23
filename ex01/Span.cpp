@@ -24,29 +24,30 @@ void Span::addNumber(int a)
     else
         throw std::out_of_range("Index out of bounds");
 }
+
 int Span::shortestSpan()
 {
     if (stac.size() < 2)
         throw std::out_of_range("The vector is too short");
-    std::vector<int> tmp = stac;
-    std::sort(tmp.begin(), tmp.end());
-    int shortest = tmp[1] - tmp[0];
-    int tmp_short = 0;
-    for (size_t i = 2; i < tmp.size(); i++)
+    
+    int shortest = abs(stac[1] - stac[0]);  // Absolute difference
+    
+    for (size_t i = 0; i < stac.size(); i++) 
     {
-        tmp_short = tmp[i] - tmp[i - 1];
-        if (tmp_short < shortest)
-            shortest = tmp_short;
+        for (size_t j = i + 1; j < stac.size(); j++)
+        {
+            int diff = abs(stac[i] - stac[j]);
+            if (diff < shortest)
+                shortest = diff;
+        }
     }
-    return (shortest);
-
+    return shortest;
 }
 
 int Span::longestSpan()
 {
     if (stac.size() < 2)
         throw std::out_of_range("The vector is too short");
-    std::vector<int> tmp = stac;
-    std::sort(tmp.begin(), tmp.end());
-    return (tmp.back() - tmp.front());
+    return (*std::max_element(stac.begin(), stac.end()) - 
+            *std::min_element(stac.begin(), stac.end()));
 }
