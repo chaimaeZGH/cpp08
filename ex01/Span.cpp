@@ -30,17 +30,10 @@ int Span::shortestSpan()
     if (stac.size() < 2)
         throw std::out_of_range("The vector is too short");
     
-    int shortest = abs(stac[1] - stac[0]);  // Absolute difference
-    
-    for (size_t i = 0; i < stac.size(); i++) 
-    {
-        for (size_t j = i + 1; j < stac.size(); j++)
-        {
-            int diff = abs(stac[i] - stac[j]);
-            if (diff < shortest)
-                shortest = diff;
-        }
-    }
+    std::sort(stac.begin(), stac.end());
+    int shortest = stac[1] - stac[0];
+    for (size_t i = 2; i < stac.size(); i++)
+        shortest = std::min(shortest, stac[i] - stac[i-1]);
     return shortest;
 }
 
@@ -50,4 +43,11 @@ int Span::longestSpan()
         throw std::out_of_range("The vector is too short");
     return (*std::max_element(stac.begin(), stac.end()) - 
             *std::min_element(stac.begin(), stac.end()));
+}
+
+void Span::addNumber(std::vector<int> &old)
+{
+    if (stac.size() + old.size() > N)
+            throw std::overflow_error("Adding these would exceed Span capacity!");
+        stac.insert(stac.end(), old.begin(), old.end());
 }

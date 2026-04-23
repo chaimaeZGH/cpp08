@@ -15,7 +15,8 @@ class Span
         ~Span();
         Span(const Span &other) ;
         Span &operator=(const Span &other);
-        void addNumber(int a) ;
+        void addNumber(int a);
+        void addNumber(std::vector<int> &old);
         int shortestSpan();
         int longestSpan();
 };

@@ -4,7 +4,7 @@ RM = rm -f
 SRCS = main.cpp 
 NAME =  MutantStack
 OBJS = $(SRCS:.cpp=.o)
-HEADER = MutantStack.hpp
+HEADER = MutantStack.hpp MutantStack.tpp
 
 all: $(NAME)	
 

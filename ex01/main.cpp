@@ -12,13 +12,18 @@ int main()
             ff.addNumber(i*2);
             i++;
         }
-
+        std::vector<int> old;
+        for (int i = 10; i < 20; i++)
+            old.push_back(i);
         std::cout<<ff.longestSpan()<<std::endl;
-        std::cout<<ff.shortestSpan()<<std::endl;;
+        std::cout<<ff.shortestSpan()<<std::endl;
+        Span ss;
+        ss.addNumber(old);
     }
-    catch (const std::out_of_range& e)
+    
+    catch (std::exception &e)
     {
-        std::cout << "Error: " << e.what() << std::endl;
+        std::cout << e.what() << std::endl;
     }
 }
 
