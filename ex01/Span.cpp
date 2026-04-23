@@ -22,13 +22,13 @@ void Span::addNumber(int a)
     if(stac.size() < N)
         stac.push_back(a);
     else
-        throw std::out_of_range("Index out of bounds");
+        throw std::overflow_error("Index out of bounds");
 }
 
 int Span::shortestSpan()
 {
     if (stac.size() < 2)
-        throw std::out_of_range("The vector is too short");
+        throw std::overflow_error("The vector is too short");
     
     std::sort(stac.begin(), stac.end());
     int shortest = stac[1] - stac[0];
@@ -40,7 +40,7 @@ int Span::shortestSpan()
 int Span::longestSpan()
 {
     if (stac.size() < 2)
-        throw std::out_of_range("The vector is too short");
+        throw std::overflow_error("The vector is too short");
     return (*std::max_element(stac.begin(), stac.end()) - 
             *std::min_element(stac.begin(), stac.end()));
 }
@@ -48,6 +48,6 @@ int Span::longestSpan()
 void Span::addNumber(std::vector<int> &old)
 {
     if (stac.size() + old.size() > N)
-            throw std::overflow_error("Adding these would exceed Span capacity!");
+            throw std::ooverflow_error("no more capacity!");
         stac.insert(stac.end(), old.begin(), old.end());
 }
